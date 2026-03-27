@@ -14,7 +14,7 @@ class MyPlugin(Star):
     async def poke(self, event: AstrMessageEvent):
         if event.message_obj.message[0].type is ComponentType.Poke:
             chain = [
-                Component.Poke(qq=event.get_sender_id())
+                Component.Poke(id=event.get_sender_id())
             ]
             logger.info("触发戳一戳")
             yield event.chain_result(chain)
