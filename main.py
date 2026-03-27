@@ -13,7 +13,7 @@ class MyPlugin(Star):
     @filter.platform_adapter_type(filter.PlatformAdapterType.AIOCQHTTP)
     async def poke(self, event: AstrMessageEvent):
 
-        if event.message_obj.message and event.message_obj.message[0].type is ComponentType.Poke:
+        if event.message_obj.message and event.message_obj.message[0].type is ComponentType.Poke and event.message_obj.message[0].id == event.get_self_id():
             chain = [
                 Component.Plain("喵")
             ]
